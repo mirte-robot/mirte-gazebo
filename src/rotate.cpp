@@ -22,6 +22,9 @@
 #include <ros/ros.h>
 #include <sensor_msgs/PointCloud2.h>
 
+// used for rotating the point cloud coming from the 'realsense'
+
+
 class pcl_rotate {
 
 public:

@@ -1,12 +1,10 @@
 ## dependencies:
 
-Have mirte-control and mirte-teleopkey installed
+Requires ```mirte-ros-packages```, change ```mirte_teleop/launch/teleopkey.lauch```:
+```/mobile_base_controller/cmd_vel``` to ```/mirte/base_controller/cmd_vel```
 
-apt install ros-noetic-ros-control ros-noetic-ros-controllers
-
-Requires https://github.com/SyrianSpock/realsense_gazebo_plugin to be downloaded and built if you want an actual realsense. realsense-depth uses a simple depth-camera without the realsense extras.
-
-
+Requires ros-control packages:
+```apt install ros-noetic-ros-control ros-noetic-ros-controllers```
 ## running:
 
 ```sh
@@ -21,17 +19,18 @@ roslaunch mirte_teleop teleopkey.launch
 Change world by changing the `duckietown` argument in `launch/gazebo_duckietown_world.launch` to any map in the maps folder.
 
 The map file is converted to `urdf/generated.world` by `scripts/buildMap.py` and converted to `worlds/generated.world` by xacro before launching Gazebo.
-<!-- term1$ roslaunch mirte_gazebo gazebo_empty_world.launch
-term2$ roslaunch mirte_gazebo spawn_duckietown.launch
-term3$ roslaunch mirte_gazebo spawn_mirte.launch
-term4$ rosrun rviz rviz -d mirte_gazebo.rviz -->
+
 
 ## Format
 Format xml (.launch, .xacro and .world) by running 
 ```sh
 ./scripts/xmlformat.sh # uses xmllint
 ```
-and
+and Python files:
 ```sh
 ./scripts/pythonformat.sh # uses black
+```
+and yaml files:
+```sh
+./scripts/yamlformat.sh # uses yamlfmt
 ```

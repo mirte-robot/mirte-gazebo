@@ -15,8 +15,6 @@
   <arg name="robot_description" default="$(find mirte_gazebo)/urdf/mirte.xacro"/>
   <rosparam file="$(find mirte_gazebo)/config/mirte_diff_drive.yaml" command="load"/>
   <group ns="$(arg ns_1)">
-    <!-- <rosparam command="load"
-    file="$(find mirte_control)/config/my_robot_common.yaml" /> -->
     <rosparam file="$(find mirte_gazebo)/config/gazebo_ros_control_params.yaml" command="load"/>
     <param name="robot_description" command="$(find xacro)/xacro $(find mirte_gazebo)/urdf/mirte.xacro sonar_enable:=$(arg sonar_enable) camera_enable:=$(arg camera_enable) intensity_enable:=$(arg intensity_enable) lidar_enable:=$(arg lidar_enable) realsense_enable:=$(arg realsense_enable)"/>
     <!-- Spawn a robot into Gazebo -->
@@ -29,5 +27,4 @@
     <!-- ROS control stuff -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen" args="mobile_base_controller joint_state_controller "/>
   </group>
-  <!-- joint1_position_controller joint2_position_controller joint_state_controller  -->
 </launch>

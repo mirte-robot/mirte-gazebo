@@ -17,8 +17,8 @@
   </include>
   <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find mirte_gazebo)/mirte_gazebo.rviz" respawn="false"/>
   <group if="$(arg sonar_enable)">
-    <node name="mapUltrasonicLeft" pkg="mirte_gazebo" type="mapUltrasonic.py" output="screen" args="left"/>
-    <node name="mapUltrasonicRight" pkg="mirte_gazebo" type="mapUltrasonic.py" output="screen" args="right"/>
+    <node name="mapUltrasonicLeft" pkg="mirte_gazebo" type="convert_sonar" output="screen" args="left"/>
+    <node name="mapUltrasonicRight" pkg="mirte_gazebo" type="convert_sonar" output="screen" args="right"/>
   </group>
   <node name="mapEncoderLeft" pkg="mirte_gazebo" type="convert_encoder" output="screen" args="left $(arg encoder_bidirectional) $(arg encoder_ticks)"/>
   <node name="mapEncoderRight" pkg="mirte_gazebo" type="convert_encoder" output="screen" args="right $(arg encoder_bidirectional) $(arg encoder_ticks)"/>
@@ -26,7 +26,7 @@
     <node name="video_server" pkg="web_video_server" type="web_video_server"/>
   </group>
   <group if="$(arg intensity_enable)">
-    <node name="mapIRLeft" pkg="mirte_gazebo" type="mapIR.py" output="screen" args="left"/>
-    <node name="mapIRRight" pkg="mirte_gazebo" type="mapIR.py" output="screen" args="right"/>
+    <node name="mapIRLeft" pkg="mirte_gazebo" type="convert_ir" output="screen" args="left"/>
+    <node name="mapIRRight" pkg="mirte_gazebo" type="convert_ir" output="screen" args="right"/>
   </group>
 </launch>
