@@ -4,11 +4,9 @@
   <xacro:realsense-depth prefix="mirte_" parent="link_chassis">
     <origin xyz="0.1 0 0.035" rpy="0 0 0"/>
   </xacro:realsense-depth>
-
-<!-- To use a 'real' realsense, uncomment the following and comment the above code. -->
+  <!-- To use a 'real' realsense, uncomment the following and comment the above code. -->
   <!-- <xacro:include filename="$(find mirte_gazebo)/urdf/realsense-RS200.macro.xacro"/>
   <xacro:realsense-rs200 prefix="mirte_" parent="link_chassis">
     <origin xyz="0.1 0 0.035" rpy="0 0 0"/>
   </xacro:realsense-rs200> -->
-
 </robot>

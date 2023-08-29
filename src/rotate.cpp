@@ -24,7 +24,6 @@
 
 // used for rotating the point cloud coming from the 'realsense'
 
-
 class pcl_rotate {
 
 public:

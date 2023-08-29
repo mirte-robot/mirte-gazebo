@@ -113,7 +113,7 @@
       </light>
     </state>
     <gui fullscreen="0">
-      <camera name='user_camera'>
+      <camera name="user_camera">
         <pose>2.48203 2.4474 8.36958 -0 1.48 -3.13919</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
