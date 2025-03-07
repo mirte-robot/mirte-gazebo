@@ -26,9 +26,11 @@
   </include>
 
   <!-- And start the ROS2 controller for the arm -->
-  <node pkg="controller_manager" exec="spawner" args="mirte_arm_controller mirte_gripper_controller">
+
+  <node pkg="controller_manager" exec="spawner" args="joint_state_broadcaster mirte_master_arm_controller mirte_master_gripper_controller">
     <param name="use_sim_time" value="true"/>
   </node>
+
 
   <!-- With the above setup, the wheels are not turning since
        it is using the p3d plugin to move the robot (there
@@ -36,7 +38,7 @@
        In order to fix this, ROS2 control is used. -->
 
   <!-- This will listen to /mirte_base_controller/cmd_vel_unstamped -->
-  <node pkg="controller_manager" exec="spawner" args="joint_state_broadcaster mirte_base_controller">
+  <node pkg="controller_manager" exec="spawner" args="pid_wheels_controller mirte_base_controller">
     <param name="use_sim_time" value="true"/>
   </node>
 
