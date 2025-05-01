@@ -17,9 +17,12 @@
   <depend>sensor_msgs</depend>
   <depend>tf2</depend>
   <depend>twist_mux</depend>
+  <exec_depend>mirte_control</exec_depend>
+  <exec_depend>mirte_master_description</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>gazebo_ros2_control</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>teleop-twist-keyboard</exec_depend>
   <exec_depend>xacro</exec_depend>
   <export>
     <build_type>ament_cmake</build_type>
