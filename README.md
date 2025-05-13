@@ -9,7 +9,7 @@ running you need to install a couple of packages:
 vcs import src/ < src/mirte-gazebo/sources.repos
 cd src/mirte_ros_packages
 shopt -s extglob
-rm -rf !("mirte_msgs"|"mirte_control"|"mirte_description"|"mirte_moveit_config")
+rm -rf mirte!("_msgs"|"_control"|"_description"|"_moveit_config") # requires bash
 cd ../..
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
