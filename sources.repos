@@ -3,7 +3,7 @@ repositories:
     type: git
     url: https://github.com/RCPRG-ros-pkg/gazebo-grasp-plugin.git
     version: humble-grasp-fix
-  mirte_ros_packages:
+  mirte-ros-packages:
     type: git
     url: https://github.com/mirte-robot/mirte-ros-packages.git
     version: develop
