@@ -34,14 +34,15 @@ jobs:
         with:
           submodules: 'recursive'
           fetch-depth: 0 # fetch all history for the self-checkout step
+          path: ./srcO
       - name: self-checkout
         id: self-checkout
         # if: 0
         run: |
-              set -e
-              mkdir -p ./srcO/
-              mv ./mirte_* ./srcO/
-              rm -rf ./src
+              # set -e
+              # mkdir -p ./srcO/
+              # mv ./mirte_* ./srcO/
+              # rm -rf ./src
               
               # # if not on develop or main, only build the packages from the last 2 commits
               # if [[ "${{ github.ref }}" != "refs/heads/main" && "${{ github.ref }}" != "refs/heads/develop" ]]; then
