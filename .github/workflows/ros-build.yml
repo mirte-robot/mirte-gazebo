@@ -84,7 +84,7 @@ jobs:
           REPOS_FILE: ./srcO/sources.repos
           SKIP_CHECKOUT: true
           PACKAGES_BRANCH: ros_mirte_${{ matrix.ros_distro }}_${{ matrix.deb_distro }}_${{ matrix.arch }}${{ github.ref == 'refs/heads/develop' && '_develop' || '' }}
-          SKIP_PACKAGES:  "gazebo_grasp_plugin mirte_telemetrix_cpp mirte_bringup mirte_teleop mirte_moveit_config mirte_master_arm_control mirte_master_base_control mirte_pioneer_control"
+          SKIP_PACKAGES:  "gazebo_grasp_plugin gazebo_version_helpers mirte_fast_dds_discovery_setup mirte_test mirte_zenoh_setup mirte_telemetrix_cpp mirte_bringup mirte_teleop mirte_moveit_config mirte_master_arm_control mirte_master_base_control mirte_pioneer_control"
         #   SBUILD_CONF: "$enable_network = 1;"
         #   Skip pushing to repo when not on main branch
           SKIP_PUSH: false
