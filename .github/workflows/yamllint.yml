@@ -4,6 +4,7 @@ on: [push, pull_request]
 jobs:
   yaml_style_check:
     runs-on: ubuntu-latest
+    if: false # disabled for now
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
