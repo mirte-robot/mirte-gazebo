@@ -5,7 +5,7 @@
   <description>Simulation (world and robot) of Mirte for Robot Software Practicals (RO47003)</description>
   <maintainer email="m.a.garzonoviedo@tudelft.nl">Mario Garzon Oviedo</maintainer>
   <maintainer email="a.j.vanhilten@tudelft.nl">Arend-Jan van Hilten</maintainer>
-  <license>BSD-3-Clause</license>
+  <license>Apache-2.0</license>
   <buildtool_depend>ament_cmake</buildtool_depend>
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
