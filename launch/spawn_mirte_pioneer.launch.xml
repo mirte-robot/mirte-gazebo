@@ -29,5 +29,13 @@
         <param name="use_sim_time" value="true"/>
       </node>
     </group>
+    <!-- republish from /mirte_base_controller/cmd_vel to /mirte/cmd_vel for teleop -->
+    <!-- ros2 run topic_tools relay <intopic> [outtopic] -->
+    <node name="cmd_vel_republisher" pkg="topic_tools" exec="relay" output="screen" args="/mirte_base_controller/cmd_vel /mirte/cmd_vel">
+      <param name="use_sim_time" value="true"/>
+    </node>
+    <!-- publish a few messages for the cmd vel republisher to know type and qos -->
+    <!-- other qos settings makes teleop_key not work. -->
+    <executable name="cmd_vel_publisher" cmd="ros2 topic pub -r 10 -w1 --times 10 --qos-reliability reliable --qos-durability volatile /mirte_base_controller/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'" output="log"/>
   </group>
 </launch>
