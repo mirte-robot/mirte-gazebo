@@ -75,7 +75,7 @@ jobs:
               # echo "GIT_SHA1=${GIT_SHA1}" >> $GITHUB_ENV
               # echo "${GIT_SHA1}" > ./srcO/mirte_telemetrix_cpp/git_sha1.txt
       - uses: arendjan/ros-deb-builder-action@upmain # allows for failing builds
-        # if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' }}
+        if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' }}
         with:
           ROS_DISTRO: ${{ matrix.ros_distro }}
           DEB_DISTRO: ${{ matrix.deb_distro }}
@@ -90,19 +90,20 @@ jobs:
           SKIP_PUSH: false
           UPLOAD_ARTIFACTS: true
           CONTINUE_ON_ERROR: true
-      # - uses: arendjan/ros-deb-builder-action@upmain # allows for failing builds
-      #   if: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' }}
-      #   with:
-      #     ROS_DISTRO: ${{ matrix.ros_distro }}
-      #     DEB_DISTRO: ${{ matrix.deb_distro }}
-      #     DEB_ARCH: ${{ matrix.arch }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     # REPOS_FILE: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' }}./sources.repos
-      #     # if not on develop or main, only build the packages from the last 2 commits
-      #     SKIP_PACKAGES: ${{ steps.self-checkout.outputs.SKIP_PACKAGES || '' }}
-      #     SKIP_CHECKOUT: true
-      #     PACKAGES_BRANCH: ros_mirte_${{ matrix.ros_distro }}_${{ matrix.deb_distro }}_${{ matrix.arch }}${{ github.ref == 'refs/heads/develop' && '_develop' || '' }}
-      #   #   Skip pushing to repo when not on main branch
-      #     SKIP_PUSH: true
-      #     UPLOAD_ARTIFACTS: true
-      #     CONTINUE_ON_ERROR: true
+      - uses: arendjan/ros-deb-builder-action@upmain # allows for failing builds
+        if: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' }}
+        with:
+          ROS_DISTRO: ${{ matrix.ros_distro }}
+          DEB_DISTRO: ${{ matrix.deb_distro }}
+          DEB_ARCH: ${{ matrix.arch }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # REPOS_FILE: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' }}./sources.repos
+          # if not on develop or main, only build the packages from the last 2 commits
+          SKIP_PACKAGES: ${{ steps.self-checkout.outputs.SKIP_PACKAGES || '' }}
+          SKIP_CHECKOUT: true
+          REPOS_FILE: ./srcO/sources.repos
+          PACKAGES_BRANCH: ros_mirte_${{ matrix.ros_distro }}_${{ matrix.deb_distro }}_${{ matrix.arch }}${{ github.ref == 'refs/heads/develop' && '_develop' || '' }}
+        #   Skip pushing to repo when not on main branch
+          SKIP_PUSH: true
+          UPLOAD_ARTIFACTS: true
+          CONTINUE_ON_ERROR: true
