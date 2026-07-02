@@ -1,7 +1,11 @@
 name: ros-ci
 on:
-  pull_request:
+  # pull_request:
+  # push:
   push:
+    branches:
+      - some_other_random_branch_name_to_not_trigger
+      # builds are also done in mirte-ros-packages, no need for do it in this repo
 permissions:
   contents: write
 jobs:
