@@ -18,7 +18,7 @@
     <node name="spawn_urdf" pkg="gazebo_ros" exec="spawn_entity.py" output="screen" args="-topic /mirte/robot_description -entity mirte -b -robot_namespace mirte -unpause -x $(var x) -y $(var y) -z $(var z) -R $(var roll) -P $(var pitch) -Y $(var yaw)">        
     </node>
     <node pkg="robot_state_publisher" exec="robot_state_publisher">
-      <param name="robot_description" type="str" value="$(command 'xacro $(var robot_xacro_path) sonar_enable:=$(var sonar_enable) camera_enable:=$(var camera_enable) intensity_enable:=$(var intensity_enable) lidar_enable:=$(var lidar_enable) realsense_enable:=$(var realsense_enable)')"/>
+      <param name="robot_description" type="str" value="$(command 'xacro \'$(var robot_xacro_path)\' sonar_enable:=$(var sonar_enable) camera_enable:=$(var camera_enable) intensity_enable:=$(var intensity_enable) lidar_enable:=$(var lidar_enable) realsense_enable:=$(var realsense_enable)')"/>
       <param name="use_sim_time" value="true"/>
     </node>
     <group if="$(var intensity_enable)">
