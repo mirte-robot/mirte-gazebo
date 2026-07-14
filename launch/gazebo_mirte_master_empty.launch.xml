@@ -43,7 +43,9 @@
   </node>
 
   <!-- And run the twist_muxer to combine these and introduce a timeout -->
-  <executable cmd="ros2 topic pub /zero_cmd_vel geometry_msgs/msg/Twist {} -r 100" />
+  <!-- work around ros2 topic pub being very verbose by making it print
+       only every 4294967295th message -->
+  <executable cmd="ros2 topic pub /zero_cmd_vel geometry_msgs/msg/Twist {} -r 100 --print=4294967295" />
   <arg name="twist_mux_config" default="$(find-pkg-share mirte_gazebo)/config/twist_mux.yaml"/>
   <node pkg="twist_mux" exec="twist_mux">
     <remap from="/cmd_vel_out" to="/cmd_vel"/>

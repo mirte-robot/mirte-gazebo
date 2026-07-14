@@ -64,12 +64,12 @@ def generate_launch_description():
 
   pkg_mirte_gazebo = get_package_share_directory(
         'mirte_gazebo')
-  spawn_mirte_master_path = os.path.join(
+  spawn_mirte_pioneer_path = os.path.join(
       pkg_mirte_gazebo,
       'launch',
-      'spawn_mirte_master.launch.xml')
-  spawn_mirte_master = IncludeLaunchDescription(
-    XMLLaunchDescriptionSource(spawn_mirte_master_path),
+      'spawn_mirte_pioneer.launch.xml')
+  spawn_mirte_pioneer = IncludeLaunchDescription(
+    XMLLaunchDescriptionSource(spawn_mirte_pioneer_path),
     launch_arguments={'use_sim_time' : LaunchConfiguration('use_sim_time')}.items(),
   )
 
@@ -78,5 +78,5 @@ def generate_launch_description():
     use_sim_time_arg,
     world_arg,
     gz_sim,
-    spawn_mirte_master,
+    spawn_mirte_pioneer,
   ])

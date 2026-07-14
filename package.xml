@@ -20,7 +20,11 @@
   <depend>gz_ros2_control</depend>
   <depend>ign_ros2_control</depend>
   <depend>ros_gz</depend>
+  <exec_depend>mirte_control</exec_depend>
+  <exec_depend>mirte_master_description</exec_depend>
+  <exec_depend>mirte_pioneer_description</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>teleop_twist_keyboard</exec_depend>
   <exec_depend>xacro</exec_depend>
   
   <export>
