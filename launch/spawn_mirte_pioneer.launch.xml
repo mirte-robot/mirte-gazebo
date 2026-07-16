@@ -11,7 +11,7 @@
   <arg name="intensity_enable" default="True"/>
   <arg name="sonar_enable" default="True"/>
   <arg name="lidar_enable" default="True"/>
-  <arg name="realsense_enable" default="True"/>
+  <arg name="realsense_enable" default="False"/>
   <arg name="robot_xacro_path" default="$(find-pkg-share mirte_pioneer_description)/urdf/mirte/mirte.xacro"/>
   <group>
     <push_ros_namespace namespace="$(var ns_1)"/>
@@ -36,10 +36,10 @@
       <param name="use_sim_time" value="true" />
     </node>
     <node pkg="ros_gz_bridge" exec="parameter_bridge">
-      <param name="config_file" value="$(find-pkg-share mirte_gazebo)/config/ros_gz_bridge.yaml"/>
+      <param name="config_file" value="$(find-pkg-share mirte_gazebo)/config/mirte_pioneer_ros_gz_bridge.yaml"/>
     </node>
-    <node pkg="ros_gz_image" exec="image_bridge" args="/rgbd_camera/image" />
-    <node pkg="ros_gz_image" exec="image_bridge" args="/rgbd_camera/depth_image" />
+    <!-- <node pkg="ros_gz_image" exec="image_bridge" args="/rgbd_camera/image" />
+    <node pkg="ros_gz_image" exec="image_bridge" args="/rgbd_camera/depth_image" /> -->
     <node pkg="robot_state_publisher" exec="robot_state_publisher">
       <param name="robot_description" type="str" value="$(command 'xacro $(var robot_xacro_path) sim:=True sonar_enable:=$(var sonar_enable) lidar_enable:=$(var lidar_enable) intensity_enable:=$(var intensity_enable) realsense_enable:=$(var realsense_enable)')" /> 
       <param name="use_sim_time" value="True"/>
