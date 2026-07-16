@@ -43,7 +43,7 @@ def generate_launch_description():
   world_path = PathJoinSubstitution([
     FindPackageShare('mirte_gazebo'),
     'worlds',
-    'empty.world'
+    'testworld.world.sdf'
   ])
   world_arg = DeclareLaunchArgument(
     'world',
