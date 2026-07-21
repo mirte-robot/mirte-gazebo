@@ -1,5 +1,5 @@
 - ros_topic_name: "clock"
-  gz_topic_name: "clock"
+  gz_topic_name: "/world/empty/clock" # todo: fix this for all worlds?????
   ros_type_name: "rosgraph_msgs/msg/Clock"
   gz_type_name: "gz.msgs.Clock"
   direction: GZ_TO_ROS
@@ -65,4 +65,18 @@
   gz_topic_name: "/rgbd_camera/depth_image/camera_info"
   ros_type_name: "sensor_msgs/msg/CameraInfo"
   gz_type_name: "gz.msgs.CameraInfo"
+  direction: GZ_TO_ROS
+
+
+# sonar: distance/{left,right}
+- ros_topic_name: "/distance/rear_left"
+  gz_topic_name: "/distance/rear_left"
+  ros_type_name: "sensor_msgs/msg/Range"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/distance/rear_right"
+  gz_topic_name: "/distance/rear_right"
+  ros_type_name: "sensor_msgs/msg/Range"
+  gz_type_name: "gz.msgs.LaserScan"
   direction: GZ_TO_ROS
