@@ -10,7 +10,7 @@
 
   <arg name="ns_1" default=""/>
   <arg name="robot_xacro_path" default="$(find-pkg-share mirte_master_description)/urdf/mirte_masterv2.xacro"/>
-
+  <!-- <arg name="robot_xacro_path" default="/workspaces/ros2_jazzy_ws/mirte_master.urdf"/> -->
   <!-- MIRTE master specific arguments -->
   <arg name="arm_enable" default="False"/>
   <arg name="sonar_enable" default="True"/>
