@@ -1,0 +1,29 @@
+repositories:
+  mirte-ros-packages:
+    type: git
+    url: https://github.com/EGAlberts/mirte-ros-packages.git
+    version: fortress
+  mirte-gazebo:
+    type: git
+    url: https://github.com/EGAlberts/mirte-gazebo.git
+    version: docker
+  mirte_navigation:
+    type: git
+    url: https://github.com/kas-lab/mirte_navigation.git
+    version: fortress
+  robocup_home_simulation:
+    type: git
+    url: https://github.com/kas-lab/robocup_home_simulation.git
+    version: fortress
+  aws-robomaker-small-house-world:
+    type: git
+    url: https://github.com/aws-robotics/aws-robomaker-small-house-world.git
+    version: ros2
+  plasys_house_world:
+    type: git
+    url: https://github.com/dgarcu/plasys_house_world
+    version: humble
+  sdf_models:
+    type: git
+    url: https://github.com/kas-lab/SDF_models.git
+    version: main

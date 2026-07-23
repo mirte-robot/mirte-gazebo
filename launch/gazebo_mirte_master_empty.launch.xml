@@ -2,10 +2,10 @@
 <launch>
 
   <!-- MIRTE master specific arguments -->
-  <arg name="arm_enable" default="True"/>
+  <arg name="arm_enable" default="False"/>
   <arg name="sonar_enable" default="True"/>
   <arg name="lidar_enable" default="True"/>
-  <arg name="depth_camera_enable" default="True"/>
+  <arg name="depth_camera_enable" default="False"/>
 
   <arg name="gui" default="True"/>
 
