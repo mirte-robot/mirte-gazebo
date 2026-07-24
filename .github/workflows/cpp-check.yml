@@ -4,11 +4,11 @@ jobs:
   cpp_style_check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: DoozyX/clang-format-lint-action@v0.14
+      - uses: actions/checkout@v7
+      - uses: DoozyX/clang-format-lint-action@v0.20
         with:
           source: '.'
           # exclude: './third_party ./external'
-          extensions: 'h,cpp'
-          clangFormatVersion: 14
+          extensions: 'h,cpp,hpp,c'
+          clangFormatVersion: 18
           style: llvm
