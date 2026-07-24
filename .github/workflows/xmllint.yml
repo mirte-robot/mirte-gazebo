@@ -1,0 +1,13 @@
+---
+name: test-xml-format
+on: [push, pull_request]
+jobs:
+  xml_style_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: sudo apt update && sudo apt install libxml2-utils -y
+      - name: check xml changes
+        run: |-
+          find . -name "*.xml" -exec xmllint --format {} -o {} \;
+          git diff --exit-code
