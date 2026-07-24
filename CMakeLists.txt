@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.15)
 project(mirte_gazebo)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -19,7 +19,6 @@ install(TARGETS convert_ir
   DESTINATION lib/${PROJECT_NAME})
 
 foreach(X IN ITEMS "config" "launch" "urdf" "media" "models" "worlds")
-    message(STATUS "X=${X}")
     install(DIRECTORY ${X}
       DESTINATION share/${PROJECT_NAME}/)
 endforeach()
