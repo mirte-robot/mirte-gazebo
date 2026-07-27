@@ -4,15 +4,15 @@
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
   <arg name="z" default="0.1"/>
-  <arg name="roll" default="-1.6"/>
+  <arg name="roll" default="0"/>
   <arg name="pitch" default="0"/>
   <arg name="yaw" default="0"/>
 
   <arg name="ns_1" default=""/>
   <arg name="robot_xacro_path" default="$(find-pkg-share mirte_master_description)/urdf/mirte_masterv2.xacro"/>
-  <!-- <arg name="robot_xacro_path" default="/workspaces/ros2_jazzy_ws/mirte_master.urdf"/> -->
+  <!-- <arg name="robot_xacro_path" default="/home/robohouse/mirte_ws/src/mirte-ros-packages/mirte_description/mirte_master_description/mirte_master.urdf"/> -->
   <!-- MIRTE master specific arguments -->
-  <arg name="arm_enable" default="False"/>
+  <arg name="arm_enable" default="True"/>
   <arg name="sonar_enable" default="True"/>
   <arg name="lidar_enable" default="True"/>
   <arg name="depth_camera_enable" default="False"/>
@@ -34,7 +34,7 @@
       exec="spawner" 
       output="screen"
       if="$(var arm_enable)"
-      args="--switch-timeout 15 joint_state_broadcaster  mirte_arm_controller mirte_master_gripper_controller">
+      args="--switch-timeout 15 joint_state_broadcaster mirte_master_arm_controller mirte_master_gripper_controller">
       <param name="use_sim_time" value="true" />
     </node>
     <node pkg="ros_gz_bridge" exec="parameter_bridge">

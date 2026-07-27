@@ -18,7 +18,7 @@
   <depend>tf2</depend>
   <depend>twist_mux</depend>
   <depend>gz_ros2_control</depend>
-  <depend>ign_ros2_control</depend>
+  <!-- <depend>ign_ros2_control</depend> -->
   <depend>ros_gz</depend>
   <exec_depend>mirte_control</exec_depend>
   <exec_depend>mirte_master_description</exec_depend>
