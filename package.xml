@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>mirte_gazebo</name>
-  <version>0.2.0</version>
+  <version>0.2.1</version>
   <description>Simulation (world and robot) of Mirte for Robot Software Practicals (RO47003)</description>
   <maintainer email="m.a.garzonoviedo@tudelft.nl">Mario Garzon Oviedo</maintainer>
   <maintainer email="a.j.vanhilten@tudelft.nl">Arend-Jan van Hilten</maintainer>
