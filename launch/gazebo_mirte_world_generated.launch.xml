@@ -3,9 +3,11 @@
   <set_env name="GAZEBO_MODEL_PATH" value="$(env GAZEBO_MODEL_PATH ''):$(find-pkg-share mirte_gazebo)/models"/>
   <set_env name="GAZEBO_MEDIA_PATH" value="$(env GAZEBO_MEDIA_PATH ''):$(find-pkg-share mirte_gazebo)/media"/>
   <arg name="gui" default="true"/>
+  <arg name="verbose" default="false"/>
   <arg name="generated_world" default="$(find-pkg-share mirte_gazebo)/worlds/robocupjunior_simple.world"/>
   <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py">
     <arg name="world" value="$(var generated_world)"/>
     <arg name="gui" value="$(var gui)"/>
+    <arg name="verbose" value="$(var verbose)"/>
   </include>
 </launch>
