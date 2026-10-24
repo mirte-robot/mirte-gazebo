@@ -8,9 +8,10 @@
   <arg name="encoder_ticks" default="540"/>
   <arg name="realsense_enable" default="False"/>
   <arg name="gui" default="True"/>
+  <arg name="world" default="$(find-pkg-share mirte_gazebo)/worlds/robocupjunior_simple.world"/>
   <include file="$(find-pkg-share mirte_gazebo)/launch/gazebo_mirte_world_generated.launch.xml">
     <arg name="gui" value="$(var gui)"/>
-    <arg name="generated_world" value="$(find-pkg-share mirte_gazebo)/worlds/robocupjunior_simple.world"/>
+    <arg name="generated_world" value="$(var world)"/>
   </include>
   <include file="$(find-pkg-share mirte_gazebo)/launch/spawn_mirte_pioneer.launch.xml">
     <arg name="camera_enable" value="$(var camera_enable)"/>
