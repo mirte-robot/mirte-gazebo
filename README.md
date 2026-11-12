@@ -12,6 +12,7 @@ We assuem you have cloned this repository in your ROS2 workspace (eg. ~/ros_ws/s
 ```sh
 vcs import src/ < src/mirte-gazebo/sources.repos
 rosdep install -y --from-paths src/ --ignore-src --rosdistro humble
+touch src/mirte-ros-packages/mirte_{bringup,telemetrix_cpp,test,zenoh_setup}/COLCON_IGNORE
 colcon build --symlink-install
 ```
 
