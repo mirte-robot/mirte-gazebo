@@ -17,16 +17,8 @@
   <arg name="realsense_enable" default="True"/>
   <group>
     <push_ros_namespace namespace="$(var ns_1)"/>
-<!--    <node name="spawn_urdf" pkg="gazebo_ros" exec="spawn_entity.py" output="screen" args="-topic $(var ns_1)/robot_description -entity mirte -b -robot_namespace $(var ns_1) -unpause -x $(var x) -y $(var y) -z $(var z) -R $(var roll) -P $(var pitch) -Y $(var yaw)"></node> -->
-    <include file="$(find-pkg-share mirte_gazebo)/launch/spawn_mirte_windows_fix.launch.py">
-      <arg name="ns_1" value="$(var ns_1)"/>
-      <arg name="x" value="$(var x)"/>
-      <arg name="y" value="$(var y)"/>
-      <arg name="z" value="$(var z)"/>
-      <arg name="roll" value="$(var roll)"/>
-      <arg name="pitch" value="$(var pitch)"/>
-      <arg name="yaw" value="$(var yaw)"/>
-    </include>
+    <!-- <node name="spawn_urdf" pkg="gazebo_ros" exec="spawn_entity.py" output="screen" args="-topic $(var ns_1)/robot_description -entity mirte -b -robot_namespace $(var ns_1) -unpause -x $(var x) -y $(var y) -z $(var z) -R $(var roll) -P $(var pitch) -Y $(var yaw)"></node> -->
+    <executable cmd="ros2 run gazebo_ros spawn_entity.py -topic $(var ns_1)/robot_description -entity mirte -b -robot_namespace $(var ns_1) -unpause -x $(var x) -y $(var y) -z $(var z) -R $(var roll) -P $(var pitch) -Y $(var yaw)"/>
     <node pkg="robot_state_publisher" exec="robot_state_publisher">
       <param name="robot_description" type="str" value="$(command 'xacro $(var robot_xacro_path) sonar_enable:=$(var sonar_enable) camera_enable:=$(var camera_enable) intensity_enable:=$(var intensity_enable) lidar_enable:=$(var lidar_enable) realsense_enable:=$(var realsense_enable)')"/>
       <param name="use_sim_time" value="true"/>
